@@ -1,0 +1,115 @@
+generated: '2026-08-06'
+method: probed
+source: live probes of https://alloriontx.com/.well-known/* and the API-discovery paths on 2026-08-06
+host: https://alloriontx.com
+result: none
+note: >-
+  No /.well-known/ discovery document is published on alloriontx.com. Two statuses are recorded per
+  path because the origin (SiteGround, nginx) answers automated requests from our egress with an
+  HTTP 202 CAPTCHA interstitial — an HTML body whose only content is a meta-refresh to
+  /.well-known/sgcaptcha/ — rather than the real response. `status` is the code our probe actually
+  received; `resolved` is what the path really returns once served, checked through a public reader
+  service rather than by defeating the challenge, which this pipeline does not do. Where `resolved`
+  is null the challenge also stood in front of the reader and the true status was not observed; it
+  is recorded as unknown rather than guessed. Every path that did resolve returned the site's
+  WordPress 404 page. There is no security.txt, no OIDC or OAuth metadata, no api-catalog, no
+  ai-plugin.json and no A2A agent card at either the canonical or the legacy path.
+documents:
+- path: /.well-known/security.txt
+  status: 202
+  resolved: 404
+  present: false
+- path: /.well-known/openid-configuration
+  status: 202
+  resolved: null
+  present: false
+- path: /.well-known/oauth-authorization-server
+  status: 202
+  resolved: null
+  present: false
+- path: /.well-known/api-catalog
+  status: 202
+  resolved: 404
+  present: false
+- path: /.well-known/ai-plugin.json
+  status: 202
+  resolved: null
+  present: false
+- path: /.well-known/agent-card.json
+  status: 202
+  resolved: 404
+  present: false
+- path: /.well-known/agent.json
+  status: 202
+  resolved: 404
+  present: false
+- path: /llms.txt
+  status: 202
+  resolved: null
+  present: false
+spec_discovery:
+  note: >-
+    Contract discovery (pipeline STEP 0b) run against alloriontx.com and every plausible API host.
+    No OpenAPI, Swagger, GraphQL SDL, AsyncAPI or MCP endpoint exists. There is no baseURL and no
+    OpenAPI servers[] host to probe because the company registers no API.
+  probes:
+  - path: /openapi.json
+    status: 202
+    resolved: 404
+  - path: /openapi.yaml
+    status: 202
+    resolved: null
+  - path: /swagger.json
+    status: 202
+    resolved: 404
+  - path: /api-docs
+    status: 202
+    resolved: null
+  - path: /docs
+    status: 202
+    resolved: null
+  - path: /graphql
+    status: 202
+    resolved: 404
+  hosts:
+  - host: api.alloriontx.com
+    dns: NXDOMAIN
+  - host: developer.alloriontx.com
+    dns: NXDOMAIN
+  - host: docs.alloriontx.com
+    dns: NXDOMAIN
+  - host: dev.alloriontx.com
+    dns: NXDOMAIN
+  - host: portal.alloriontx.com
+    dns: NXDOMAIN
+  - host: app.alloriontx.com
+    dns: NXDOMAIN
+  github_org:
+  - url: https://api.github.com/orgs/allorion
+    status: 404
+  - url: https://api.github.com/orgs/alloriontx
+    status: 404
+  - url: https://api.github.com/orgs/allorion-therapeutics
+    status: 404
+  packages:
+    note: >-
+      No first-party client library exists in any public registry. The GitHub user `Allorion`
+      (display name "Allori") and the npm packages `allorion-exporting-html-to-xlsx` /
+      `allorion-exporting-html-to-docx` are published by an unrelated party named Allori — HTML-to-
+      document converters, not Allorion Therapeutics software — and are explicitly NOT attributed
+      to this company.
+    registries:
+    - registry: npm
+      query: allorion
+      first_party_hits: 0
+    - registry: pypi
+      query: allorion
+      status: 404
+robots:
+  url: https://alloriontx.com/robots.txt
+  sitemap: https://alloriontx.com/sitemap_index.xml
+  disallow: []
+  note: >-
+    robots.txt is a Yoast-generated block with an empty Disallow, so nothing on the site is
+    disallowed to crawlers. The site is nevertheless closed to unattended agents in practice by the
+    SiteGround CAPTCHA interstitial, which answers automated requests regardless of robots.txt.

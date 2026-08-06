@@ -1,7 +1,15 @@
 aid: allorion-therapeutics
 name: Allorion Therapeutics
-description: 'Allorion Therapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+image: https://alloriontx.com/wp-content/uploads/2024/02/Allorion_Logo_web.png
+description: 'Allorion Therapeutics is a clinical-stage biopharmaceutical company founded in 2020
+  by Qiang Ding and Fang Li, developing novel small-molecule therapies for cancer and autoimmune
+  disease. Operating from Natick, Massachusetts and Guangzhou, China, Allorion applies mutant-selective
+  and isoform-specific medicinal chemistry across a pipeline that includes ARTS-011 (a TYK2 inhibitor),
+  ARTS-021 (a CDK2 inhibitor targeting CCNE1-amplified tumors), and ARTS-023/AVZO-023 partnered with
+  Avenzo Therapeutics, alongside an exclusive option and global license agreement with AstraZeneca for
+  an allosteric EGFR L858R inhibitor. The company is a drug-discovery organization backed by Qiming
+  Venture Partners and INCE Capital; it markets internal data and high-throughput screening platforms
+  but publishes no public developer program, API, SDK, or machine-readable specification.'
 url: https://raw.githubusercontent.com/api-evangelist/allorion-therapeutics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +20,13 @@ created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
+- Biotechnology
+- Pharmaceuticals
+- Drug Discovery
+- Oncology
+- Autoimmune
+- Life Sciences
+- Clinical Stage
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +34,60 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/allorion-therapeutics-domain-security.yml
+- type: WellKnown
+  url: well-known/allorion-therapeutics-well-known.yml
+- type: LLMsTxt
+  url: llms/allorion-therapeutics-llms.txt
 - type: Website
+  url: https://alloriontx.com/
+- type: About
+  url: https://alloriontx.com/overview/
+- type: Team
+  url: https://alloriontx.com/our-team/
+- type: Pipeline
+  url: https://alloriontx.com/pipeline/
+- type: Presentations
+  url: https://alloriontx.com/presentations/
+- type: News
+  url: https://alloriontx.com/news/
+- type: Careers
+  url: https://alloriontx.com/careers/
+- type: Contact
+  url: https://alloriontx.com/contact/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/alloriontx/
+- type: Twitter
+  url: https://twitter.com/AllorionT
+- type: SecondaryMarket
   url: https://www.nasdaqprivatemarket.com/
+x-enrichment:
+  date: '2026-08-06'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Allorion Therapeutics is a clinical-stage small-molecule drug-discovery company whose only web
+    surface is an eight-page WordPress corporate site (Overview, Team, Pipeline, Presentations,
+    News, Careers, Contact) — no api., developer., docs., dev., portal. or app. host resolves for
+    alloriontx.com, no allorion/alloriontx/allorion-therapeutics GitHub organisation exists, and
+    /openapi.json, /swagger.json, /graphql, /.well-known/agent-card.json, /.well-known/agent.json,
+    /.well-known/security.txt and /.well-known/api-catalog all resolve to the site's WordPress 404
+    page behind a SiteGround CAPTCHA interstitial that answers every automated request with HTTP
+    202.
+  evidence:
+  - url: https://alloriontx.com/openapi.json
+    status: 404
+  - url: https://alloriontx.com/.well-known/agent-card.json
+    status: 404
+  - url: https://alloriontx.com/.well-known/agent.json
+    status: 404
+  - url: https://alloriontx.com/graphql
+    status: 404
+  - url: https://api.github.com/orgs/alloriontx
+    status: 404
+  checked: '2026-08-06'
